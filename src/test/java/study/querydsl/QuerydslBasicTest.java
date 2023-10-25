@@ -282,6 +282,9 @@ public class QuerydslBasicTest {
     }
 
     @Test
+    public void test() {
+
+    }
 
 
 }
