@@ -602,7 +602,6 @@ public class QuerydslBasicTest {
     }
 
     @Test
-    @Commit
     public void bulkUpdate() {
         //member1 = 10 -> DB 비회원
         //member2 = 20 -> DB 비회원
@@ -624,6 +623,22 @@ public class QuerydslBasicTest {
         for (Member member : result) {
             System.out.println("member = " + member);
         }
+    }
+
+    @Test
+    public void bulkAdd() {
+        long count = queryFactory
+                .update(member)
+                .set(member.age, member.age.add(1))
+                .execute();
+    }
+
+    @Test
+    public void bulkDelete() {
+        long count = queryFactory
+                .delete(member)
+                .where(member.age.gt(18))
+                .execute();
     }
 
 
